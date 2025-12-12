@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASSA - National Association of Students</title>
+    <style>
+      /* --- 1. VARIABLES & RESET --- */
+      :root {
+        --primary: #006a4e; /* Deep Forest Green */
+        --secondary: #28a745; /* Bright Action Green */
+        --dark: #333333; /* Dark Grey Text */
+        --light: #f0fff4; /* Mint Cream Background */
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* --- 2. NAVIGATION --- */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary);
+        letter-spacing: -1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .btn-join {
+        background-color: var(--primary);
+        color: var(--white) !important;
+        padding: 0.6rem 1.5rem;
+        border-radius: 50px;
+        transition: 0.3s;
+      }
+
+      .btn-join:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+      }
+
+      /* Hamburger Menu (Hidden on Desktop) */
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      /* --- 3. HERO SECTION --- */
+      .hero {
+        /* Using a placeholder image of students */
+        background: linear-gradient(
+            135deg,
+            rgba(0, 106, 78, 0.9),
+            rgba(40, 167, 69, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .cta-group a {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .btn-primary {
+        background: var(--white);
+        color: var(--primary);
+      }
+      .btn-outline {
+        border: 2px solid var(--white);
+        color: var(--white);
+      }
+      .btn-primary:hover,
+      .btn-outline:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+        transition: 0.3s;
+      }
+
+      /* --- 4. STATS STRIP --- */
+      .stats {
+        display: flex;
+        justify-content: space-around;
+        padding: 3rem 5%;
+        background: var(--light);
+        text-align: center;
+      }
+      .stat-box h3 {
+        font-size: 2.5rem;
+        color: var(--primary);
+      }
+      .stat-box p {
+        font-weight: 600;
+        color: #666;
+      }
+
+      /* --- 5. NEWS / EVENTS GRID --- */
+      .section-padding {
+        padding: 4rem 5%;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        color: var(--dark);
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: 0.3s;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-img {
+        height: 200px;
+        background: #ddd;
+        /* Placeholder for news images */
+        background-image: url(./Nassa\ logo.png);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .date-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--secondary);
+        color: var(--white);
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+      .card-content h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+      .read-more {
+        color: var(--primary);
+        font-weight: bold;
+        text-decoration: none;
+        margin-top: 1rem;
+        display: inline-block;
+      }
+
+      /* --- 6. EXECUTIVES --- */
+      .exco-section {
+        background: var(--light);
+      }
+      .exco-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+      }
+
+      .exco-card {
+        text-align: center;
+      }
+      .exco-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 4px solid var(--primary);
+        /* Placeholder portrait */
+        background-image: url(./AKIN.jpg);
+        background-size: cover;
+      }
+      .exco-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+      }
+      .exco-card span {
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      /* --- 7. FOOTER --- */
+      footer {
+        background: var(--primary);
+        color: var(--white);
+        padding: 3rem 5%;
+        text-align: center;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+      .footer-col h4 {
+        margin-bottom: 1rem;
+        color: #a3e4c8;
+      }
+      .footer-col a {
+        color: #eee;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 1rem;
+        font-size: 0.9rem;
+      }
+      .lamo {
+        margin: auto;
+      }
+      /* --- 8. MOBILE RESPONSIVENESS --- */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links.active {
+          max-height: 300px;
+          padding-bottom: 20px;
+        }
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .stats {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .footer-content {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <img
+          src="./Nassa_logo-removebg-preview.png"
+          alt=""
+          width="40px"
+          height="40px"
+        />
+        <h1 class="logo">NASSA</h1>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#team">Excos</a></li>
+        <!-- <li><a href="#join" class="btn-join">Join NASSA</a></li> -->
+      </ul>
+    </nav>
+
+    <section class="hero" id="home">
+      <h1>Science For Integrated Research and Development</h1>
+      <p>
+        The official digital home of the Natural & Applied Sciences Students
+        Association Abiola Ajimobi Technical University . Connecting minds and
+        building the future together.
+      </p>
+      <div class="cta-group">
+        <!-- <a href="#" class="btn-primary">Become a Member</a> -->
+        <a href="#" class="btn-outline">Learn More</a>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-box">
+        <h3>500+</h3>
+        <p>Active Members</p>
+      </div>
+      <div class="stat-box">
+        <h3>40+</h3>
+        <p>Chapters</p>
+      </div>
+      <div class="stat-box">
+        <h3>15</h3>
+        <p>Years Standing</p>
+      </div>
+    </section>
+
+    <section class="section-padding" id="news">
+      <h2 class="section-title">Latest News & Events</h2>
+      <div class="grid-container">
+        <div class="card">
+          <div class="date-badge">Soon<br /></div>
+          <div class="card-img"></div>
+          <div class="card-content">
+            <h3>Academic Conference 2026</h3>
+            <p>
+              Join us for the largest gathering of student scholars in the
+              School.
+            </p>
+            <a href="#" class="read-more">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="date-badge">Anticipate!!!<br /></div>
+          <div
+            class="card-img"
+            style="
+              background-image: linear-gradient(
+                  135deg,
+                  rgba(0, 106, 78, 0.9),
+                  rgba(40, 167, 69, 0.7)
+                ),
+                url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+            "
+          ></div>
+          <div class="card-content">
+            <h3>Scholarship Applications</h3>
+            <p>ANTICIPATE!!!</p>
+            <a href="#" class="read-more">Read More &rarr;</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="date-badge">Completed<br /></div>
+          <div
+            class="card-img"
+            style="background-image: url(./nassw.jpg)"
+          ></div>
+          <div class="card-content">
+            <h3>NASSA Orientation</h3>
+            <p>An orientation programme for the Freshers</p>
+            <a href="#" class="read-more">Read More &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding exco-section" id="team">
+      <h2 class="section-title">Meet Your Leaders</h2>
+      <div class="exco-grid">
+        <div class="exco-card">
+          <div class="exco-img"></div>
+          <h4>Akinola Morakinyo</h4>
+          <span>President</span>
+        </div>
+        <div class="exco-card">
+          <div class="exco-img" style="background-image: url(./vp.jpg)"></div>
+          <h4>Olona Zainab</h4>
+          <span>Vice President 1</span>
+        </div>
+        <div class="exco-card">
+          <div
+            class="exco-img"
+            style="background-image: url(./speaker.jpg)"
+          ></div>
+          <h4>Isiaka Haliyah</h4>
+          <span>Speaker</span>
+        </div>
+      </div>
+
+      <div style="width: 100%; text-align: center; margin-top: 2rem">
+        <a
+          href="./Excos.html"
+          style="
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+          "
+          onmouseover="this.style.opacity='0.9'"
+          onmouseout="this.style.opacity='1'"
+        >
+          Learn More
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h3>NASSA</h3>
+          <p>Building the leaders of tomorrow, today.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="./constitution.html">Constitution</a>
+          <a href="./dues.html">Pay Dues</a>
+          <!-- <a href="#">Gallery</a> -->
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>IG @ nassatechu</p>
+          <p>X @nassaaatu</p>
+        </div>
+      </div>
+      <div class="copyright">&copy; 2025 NASSA. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

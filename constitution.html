@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --primary: #006a4e; /* Deep Forest Green */
+        --secondary: #28a745; /* Bright Action Green */
+        --dark: #333333; /* Dark Grey Text */
+        --light: #f0fff4; /* Mint Cream Background */
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* --- 2. NAVIGATION --- */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        margin-bottom: 50px;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary);
+        letter-spacing: -1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+       footer {
+        background: var(--primary);
+        color: var(--white);
+        padding: 3rem 5%;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+      .footer-col h4 {
+        margin-bottom: 1rem;
+        color: #a3e4c8;
+      }
+      .footer-col a {
+        color: #eee;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 1rem;
+        font-size: 0.9rem;
+      }
+      .const{
+        width: 80%;
+        padding: 20px;
+        /* height: 300px; */
+        /* border: thin solid red; */
+        background-color: rgba(255, 255, 255, 0.774);
+        border-radius: 30px;
+        margin: auto;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          align-items: center;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links.active {
+          max-height: 300px;
+          padding-bottom: 20px;
+        }
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .stats {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .footer-content {
+          text-align: center;
+        }
+        .logo{
+            font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div style="display: flex; flex-direction: row; gap: 10px">
+        <img
+          src="./Nassa_logo-removebg-preview.png"
+          alt=""
+          width="40px"
+          height="40px"
+        />
+        <h1 class="logo">NASSA CONSTITUTION</h1>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#team">Excos</a></li>
+        <!-- <li><a href="#join" class="btn-join">Join NASSA</a></li> -->
+      </ul>
+    </nav>
+
+    <div class="const">
+        THE CONTITUTION OF NATURAL AND APPLIED SCIENCES STUDENTS’ ASSOCIATION, (NASSA) FIRST TECHNICAL UNIVERSITY, IBADAN. 
+KM 11, LAGOS-IBADAN EXPRESSWAY, IBADAN.
+ <br>
+ABSRACT <br>
+For the smooth running and patriotism in our Association, this constitution is designed to guide, direct and check our activities in the Association. It is to be by the Dean, member of staffs and the students of the faculty. It is subject to periodic amendment. 
+ 
+PREAMBLE  
+We the member of faculty of Natural and applied science have firmly and solemnly resolved to come together to promote peace, unity, and progress among all the students of the and to bring people of the area together irrespective of department, faculty, and department to achieve progress faculty and development and in furtherance of fair play, fundamentals human right, justice, equity, and freedom. 
+Therefore, we do hereby enact and give to ourselves the following Constitution. The constitution shall be subjected to amendment as may be approved by at least two-thirds (2/3) majority of the members of the Association. Having fairly resolved to enhance the growth of the Students in the faculty. 
+So as to play a worthy part in development and growth of the Faculty and the University at large. 
+ <br>
+Table of Contents <br>
+ARTICLE 1	6 <br>
+SECTION 1: SUPREMACY OF THE CONSTITUTION	6 <br>
+SECTION 2: NAME OF THE ASSOCIATION	6 <br>
+SECTION 3: MEMBERSHIP	6 <br>
+SECTION 4: ADVISERS, PATRON, PATRONESS AND GRAND PATRON	7 <br>
+ARTICLE 2	7 <br>
+SECTION 1:    FUNDAMENTAL OBJECTIVES	7 <br>
+SECTION 2: RIGHTS AND PRIVILEGES OF MEMBERS	8 <br>
+SECTION 3: OBLIGATIONS	8 <br>
+ARTICLE 3	9 <br>
+SECTION 1: POWER OF DECISION MAKING	9 <br>
+SECTION 2: COMPOSITION OF THE STUDENTS REPRESENTATIVE COUNCIL (SRC)  11 <br> 	
+SECTION 3: EMERGENCY SITTING OF THE SRC	13 <br>
+ARTICLE 4	13 <br>
+SECTION 1 EXECUTIVE COUNCIL	13 <br>
+SECTION 2: FUNCTION OF THE PRESIDENT	14 <br>
+SECTION 3: FUNCTION OF THE VICE PRESIDENT	15 <br>
+SECTION 4: FUNCTIONS OF THE GENERAL SECRETARY	15 <br>
+SECTION 5: FUNCTIONS OF THE ASSISTANT GENERAL SECRETARY	16 <br>
+SECTION 5: FUNCTIONS OF THE TREASURER	16 <br>
+SECTION 6: FUNCTIONS OF THE FINANCIAL SECRETARY	17 <br>
+SECTION 7: FUNCTIONS OF THE DIRECTOR OF SOCIALS	17 <br>
+SECTION 8: FUNCTIONS OF THE DIRECTOR OF WELFARE	18 <br>
+SECTION 9: FUNCTIONS OF THE DIRECTOR OF SPORTS	18 <br>
+SECTION 10: FUNCTIONS OF THE ASSISTANCE PUBLIC RELATIONS OFFICER 	<br>
+(P.R.O II)	19 <br>
+SECTION 11: FUNCTIONS OF THE EX- OFFICIO WHIP	19 <br>
+SECTION 12: FUNCTIONS OF THE AUDITOR	19 <br>
+SECTION 13: QUORUM	20 <br>
+ARTICLE 5	20 <br>
+SECTION 1: STANDING COMMITTEE	20 <br>
+ARTICLE 6	25 <br>
+SECTION 1: THE REMOVAL OF THE HOUSE PRINCIPAL OFFICER(S)	25 <br>
+SECTION 2: DISSOLUTION OF THE ASSOCIATION OFFICERS	25 <br>
+SECTION 3: SETTING UP OF INTERIM EXECUTIVE COUNCIL	25 <br>
+SECTION 4: TENURE OF OFFICE	26 <br>
+SECTION 5: RESIGNATION OF THE ASSOCIATION'S OFFICER(S)	26 <br>
+ARTICLE 7	27 <br>
+SECTION 1: ELECTION	27 <br>
+SECTION 2: TIME AND VENUE OF ELECTION	28 <br>
+ARTICLE 8	29 <br>
+SECTION 1: SOCIAL NETWORKING	29 <br>
+ARTICLE 9	29 <br>
+SECTION 1: MODE OF ADDRESSING IN THE CONGRESS	29 <br>
+SECTION 2: POINT OF ORDER	29 <br>
+SECTION 3: OFFICIAL LANGUAGE	29 <br>
+SECTION 4: STANDING ORDER FOR HONOURABLES AND CONGRESS	30 <br>
+SECTION 5: INAUGURAL MEETING	30 <br>
+SECTION 6: BUSINESS MEETING	31 <br>
+SECTION 7: QUORUM FOR LEGISLATIVE	31 <br>
+ARTICLE 10	31 <br>
+OATH OF OFFICE	32 <br>
+
+ARTICLE 1 <br>
+SECTION 1: SUPREMACY OF THE CONSTITUTION <br>
+This constitution is supreme and its provision shall have binding force on all members of the Association. The Association shall not be governed nor shall any person or group of persons take control of the administration of this Association except it is by the provision of this constitution. <br>
+SECTION 2: NAME OF THE ASSOCIATION <br>
+This Association shall be known and addressed as the Natural and Applied Science Students’ Association. NASSA. 
+SECTION 3: MEMBERSHIP <br>
+Membership of this Association shall be made open to the following categories of students who are member of the faculty of Natural and Applied Science, First Technical University, Ibadan (who shall have an evidence that proofs him/her as the member of the faculty.) 
+(i)All the student and the member of staffs of the faculty are automatic members of the Association.  <br>
+(ii)Any person so confirmed with the membership of the Association shall be required to abide by all provisions of this constitution as it affects other members. <br>
+(iii)All registered students shall be members provided such a student has duly registered with a student with a recognized department and paid the prescribed membership fees/dues to the Association.<br> 
+(iv)Honorary membership shall be conferred on persons who are not students, for example the vice chancellor of the university and other principal officers of the university. <br>
+(v)All members of the Association shall pay an annual membership fee. such amount that shall be determined by the Executive and approved by the senate from time to time. <br>
+ 
+
+SECTION 4: ADVISERS, PATRON, PATRONESS AND GRAND PATRON <br>
+Patron, patroness and advisers shall be selected on the recommendation of the Association’s Executive Council and approved by a two third majority of the senate.<br>  
+ 
+ 
+Subsection 1: Grand patron <br>
+(i) There shall be one grand patron and the grand patron shall be the vice chancellor of the university. <br>
+Subsection 2: Patron  <br>
+(i) There shall be one patron of the Association. (Note: if the Dean of the faculty is male he should be automatic be the patron. <br>
+Subsection 3: Patroness <br>
+(i) There shall be one patroness of the Association. (Note: if the Dean of the faculty is female she should be automatic be the patroness.  <br>
+Subsection 4: Staff Advisers <br>
+(i)There shall be maximum of four staff advisers of the Association. The advisers should be a member of staff in the faculty.  <br>
+Subsection 3: The Association Patron, patroness and Adviser shall;   (i) Give moral and financial support to the Association. <br>
+(ii)Advice the Association when necessary.  <br>
+(iii)Honour all invitation by the Association. <br>
+(iv)Perform other functions supplementary to the office of patron/patroness/advisors. <br>
+(v)The appointment of patron, patroness and advisors shall be terminated on the expiration of each tenure.  <br>
+ARTICLE 2<br> 
+SECTION 1:    FUNDAMENTAL OBJECTIVES <br>
+The Objectives of this Association are to: <br>
+(i)Promote and encourage the social-cultural and intellectual interests of members. <br>
+(ii)Promote and protect the educational interests and welfare of members.<br> 
+(iii)Protect/secure the fundamental rights and privileges of members. <br>
+(iv)Promote/protect the good name of the faculty at all times. <br>
+(v)Represent the interests of faculty of natural and applied sciences students. <br>
+(vi)Serve as a non-politicized bodies and serve as a training ground for young aspiring individuals. <br>
+(vii)Typically provide services as; Orientation program, career talk, student media, advocacy program, and support for varieties of social art and recreational activities. <br>
+(viii)Promote the welfare of students in the Faculty <br>
+(ix)Promote Unity among members of the Faculty i.e. Students, Staffs <br>
+(x)Educate students, the rights (Do and Don’t) of the Faculty traditions <br>
+(xi)Promote characters, morals and discipline among students in the Faculty<br> (xii) Improve and promote academic performance of students in the Faculty (xiii) Inculcate the habit of transparency and accountability. <br>
+(xiv) Be trained as a disciplined future leader and maintain a high level of morality. <br>
+ 
+SECTION 2: RIGHTS AND PRIVILEGES OF MEMBERS <br>
+(i)All registered members are entitled to all the rights and freedoms as set out in this Article and the extant laws of the Federal Republic of Nigeria irrespective of race, gender, age, religion, nationality, and ethnicity provided that, in enjoying such rights, the rights of other people are not infringed upon.  <br>
+(ii)Members shall have the right to the Association’s Constitution on payment of prescribed fees. <br>
+(iii)Members shall have equal privilege of accessing the facilities and services of the Association. <br>
+(iv)Members shall have the right/freedom to seek information from any arms of the Association. <br>
+(v)Members shall have the right to freedom of expression and opinion. <br>
+(vi)Members shall have the right to freedom of peaceful association. <br>
+(vii)Members shall have the right to report all cases of harassment, abuse and intimidation from fellow members to the officers of the Association. <br>
+(viii)Members shall have the right to vote and be voted for at the Association’s Elections, except otherwise stated in this Constitution and subject to Electoral Guidelines. <br>
+(ix)Members shall have the right to petition any officer of the Association who abuses his/her office and power. This petition shall be forwarded to the Association's Senate through the Clerk of the house.<br>  
+ 
+  SECTION 3: OBLIGATIONS <br>
+(i)Every member shall strive at all times to promote to the best of his/her ability, the aims and objectives of the Association. <br> 
+(ii)Every member of the Association shall meet his/her financial obligation by paying his/her annual due or other levies on time.  <br>
+(iii)Member shall uphold the dignity of the Association in and outside the University premises.  <br>
+(iv)Members shall observe, abide and adopt the regulation and resolution of the Congress.  <br>
+(v)Member shall be prompt and present at the meeting of the Association.  <br>
+(vi)Every members are expected to participate in voting and be ready to be voted for during the transitional programme according to the provision of this Association constitution.  <br>
+(vii)Every members are expected to be loyal to the Association, the Faculty and as well as the community to which we owe allegiance.  <br>
+ 
+ARTICLE 3 <br>
+SECTION 1: POWER OF DECISION MAKING <br>
+The power of decision making of the Association is conferred on the following; i. The Congress ii. The Legislature  iii. The Executive <br>
+ 
+SUBSECTION I <br>
+ THE CONGRESS <br>
+(i)The congress shall be the Supreme organ of the Association.  <br>
+(ii)The congress shall consist of the confide members of the Association.  <br>
+(iii)The congress shall be presided over by the president in his absence, the vice president.  <br>
+(iv)In absence of officers in (3 above, the speaker shall preside and in absence of speaker, the deputy speaker shall presided).  <br>
+(v)In absence of the officers above, the congress shall elect the presiding officer for that purpose.  <br>
+(vi)The quorum shall be at least one hundred (100) members across various programmes. <br>
+(vii)Emergency meeting can be summoned by at least fifty (50) members from at least five (5) different programmes with quorum of thirty (30) members.  <br>
+(viii)Emergency meeting shall be in written form from thirty (30) members as stated above. <br> 
+(ix)The decision of the Association shall be reached by simple majority.  <br>
+(x)Any member shall declare any interest he/she have in matter coming before the congress for deliberation. <br>
+(Xi) The business of the Association shall be treated in both English and others Languages welcome by majority attendee  <br>
+(xii)Congress shall be held at least two (2) times a session.  <br>
+(xiii)Annual General Meeting shall be held on every last Wednesday of tenth week of second semester.  <br>
+(xiv) 	The decision(s) taken during the congress meeting shall be pasted on the faculty notice board and the Association social media centre (Facebook, WhatsApp, instagram, twitter, website, etc.) within 48hours.  <br>
+(xv)If the S. R. C fails to ratify or adopt bill(s) sent by the executive council, the congress shall ratify such bill(s) after thirty days.   <br>
+ 
+SUBSECTION II <br>
+THE LEGISLATURE  <br>
+(i)The organ shall bear Students Representative council (SRC). <br> 
+(ii)It shall consist of one (1) members from each programmes in the faculty, non-executive council members. <br>
+(iii)The speaker shall preside over the sitting in his absence, the deputy speaker.  <br>
+(iv)The interested members of the Association during the house sitting shall be referred to as observer and such interested member(s) is/are not part of decision maker.  <br>
+(v)The house shall approve the budget of the executive council.  <br>
+(vi)The house shall have the power to summon and interrogate any officer or committee members of the Association. <br>
+(vii)The sitting shall come up at least six (6) times in a year depending on the arrangement for the venue but at least three (3) sittings should hold within the University premises. <br>
+(viii)Voting at legislative meeting shall be open or secret balloting, if necessary. <br>
+(ix)Any person either the speaker or deputy speaker presiding shall not have voting right except if there is tie. <br>
+(x)The house shall appoint and assign the ad-hoc committee in accordance with the provision of this constitution. <br> 
+(xi)The house shall deliberate on any report of the Association committee(s), amending it if necessary and give final approval.  <br>
+(xii)House shall request the executive to summon the Congress for any emergency matter (s)  <br>
+(xiii)The speaker or any other officer of the legislative arm shall be removed/impeached on the motion supported by 2/3 of its member present at the sitting.  <br>
+(xiv)A member wishing to resign his/her membership shall forward his/her letter of resignation to the clerk of the house.  <br>
+(xv)Forfeiture or resignation vacancy shall be filled within thirty (30) days from the date of such occurrence.  <br>
+(xvi)The house shall ratify the appointment of grand patron, patrons, patroness, advisors and nominee(s) for life member. <br>
+(xvii)House shall receive and deliberate upon the report of auditing committee at the last sitting before the election i.e dissolution day of executive members.  <br>
+(xviii)The house shall have power to impeach any executive officer(s) find of gross misconduct in line with the provision of this constitution and at least supported by 2/3 majority of the council.  <br>
+(xix)Any member that absent in four (4) consecutive times from sittings without any written letter or glaring health condition issue shall have his/her membership terminated at the council.  <br>
+(xx)The house shall ensure that all the executives of the Association perform their duties in line with the provision of this constitution. <br>
+(xxi)The house shall use its exclusive power to recommend and approved punishment for any member find guilty of any offence.  <br>
+(xxii)The speaker ruling at any sitting may be over ruled by a simple majority of the house members present whenever there is division in the house.  <br>
+(xxiii)when deputy speaker is presiding, his/her constitutional function shall be performed by any other member of house appointed to do so. <br>
+(xxiv)Two-third of the members of SRC shall constitute quorum for all SRC meetings. <br>
+ 
+SECTION 2: COMPOSITION OF THE STUDENTS REPRESENTATIVE COUNCIL (SRC)  <br>
+ 
+The branch representative council shall compose the following officers;<br> 
+Speaker <br>
+Deputy <br>
+Clerk <br>
+Chief Whip <br>
+ 
+ 
+ ELIGIBILITY: To be eligible for any principal officers of the house, He/she shall be a student of either programmes in the faculty, he /she must be of good character both at faculty 
+and the University. <br>
+ 
+FUNCTIONS OF THE SPEAKER <br>
+(i)The Speaker shall preside over the House sitting (s).  <br>
+(ii)The Speaker shall with utmost good faith interpret any section of the constitution.  <br>
+(iii)He/She shall have power to maintain peace and orderliness in the house.  <br>
+(iv)He/She shall summon the meeting of the proceeding of the house through the clerk of the house.<br>
+(v)He/She shall cast vote, only when there is a tie in any election of the house. 
+collectively.  <br>
+ 
+(viii)He/She shall have power to preside over the congress after the dissolution of the central executive committee and constitute electoral committee subject to power of this constitution. <br>
+(ix)He /she shall dissolve the ongoing executive cabinet and the SRC.  <br>
+(vii) He/She shall have power to assign emergency duty to member of the house, individually. <br>
+ 
+FUNCTIONS OF THE DEPUTY SPEAKER <br>
+(i)He/She shall deputize the honourable speaker and act as the speaker in his/her absence. <br> 
+(ii)The deputy speaker shall perform other duties as may be assigned by the honourable speaker <br>
+FUNCTIONS OF THE CLERK OF THE HOUSE <br>
+(i)The Clerk of the house shall be the Secretary of the House and shall be elected by members during the first meeting of the house. <br>
+(ii)His/her duties shall include; <br>
+(A)Taking accurate minute of the sitting of the house and other duties assigned to him/her by the Association. <br>
+(B)He/she shall prepare in advance comprehensive agenda of every major points to be discussed at every sitting of the house.  <br>
+(iii)He/She shall take accreditation of the members present and within twenty-four (24) hours forward a list of absentees to the speaker/deputy speaker for necessary action in accordance with the provisions of the constitution.<br>
+(iv)He/she shall compile the proceeding of the house for documentation in the Association secretariat.  <br>
+(v)He/she shall paste/post the resolution of the sitting of the house on the social media platform of the Association. <br>
+ 
+FUNCTIONS OF THE CHIEF WHIP OF THE HOUSE <br>
+(i)He shall be member of the house and shall be elected by a simple majority of the members of the house. <br>
+(ii)He shall assist in maintaining law and order in the house sitting.  <br>
+(iii)He shall attend to visitor(s) during the house sitting and carry out instruction or information given by the speaker. <br>
+(iv)He shall carry and guide the mace during the house proceeding. <br>
+ 
+SECTION 3: EMERGENCY SITTING OF THE SRC <br>
+(i)Emergency sittings of the council shall be summoned by the speaker whenever he/she deems it necessary in the interest of the Association.  <br>
+(ii)Emergency sittings of the council shall summon on the receipt of a request signed by at least one-fifth of the member of the SRC <br>
+(iii)The procedure of emergency sittings shall be the same as that of meetings of the council. <br>
+ARTICLE 4 <br>
+SECTION 1 EXECUTIVE COUNCIL <br>
+ 
+ THE EXECUTIVE COUNCIL COMPOSITION <br>
+The Executive Council shall consist of the following; <br>
+i.The President <br>
+ii.The Vice President <br>
+iii.General Secretary <br>
+iv.Assistant General secretary  <br>
+v.Treasurer  <br>
+vi.The Financial Secretary <br>
+vii.Director of social  <br>
+viii.Director of welfare  <br>
+ix.The Director of  Sport <br>
+x.Public relations officer <br>
+xi.Assistant public relations officer <br> 
+xii.The Ex-officio whip  <br>
+xiii.The Auditor  <br>
+ 
+ 
+NOTE: Officers of the Executive Council shall be elected on the basis of individual candidacy by all members of the Association in a general election of the Congress. <br>
+ SECTION 2: FUNCTION OF THE PRESIDENT <br>
+The President shall: <br>
+(i)Be the Executive head of the Association.  <br>
+(ii)Be responsible for the overall coordination of the activities and efficient functioning of the Association. <br>
+(iii)Have power to form committees to enhance the proper running of the Association, subject to the ratification by two/third majority of the Senate. <br>
+(iv)Summon, through the Secretary, all meetings of the Executive Council and the congress meeting over which he shall preside.  <br>
+(v)He /she shall in conjunction with other executive or committee, arrange and pay official or unofficial visit to moral and financial supporters of the Association.  <br>
+(vi)Be principal signatory to the Association Account (s).  <br>
+(vii)Guide all other officers in their performance of their duties.  <br>
+(viii)Summon all Executive and General meeting in his own initiative or in conjunction with other members of the Executive.  <br>
+(vix) He/she shall entitled to cast a vote,when there is tie in election during the meeting excluding general election of the Association.  <br>
+(x) Interpret the constitution in good faith, it subject to reversal by 2/3 of members’ present and voting at such meeting.  <br>
+(Xi) He/she shall prepare and present, at the end of his tenure, a comprehensive report of the Association's activities to the Congress.<br>  
+(xii)He/she shall have power to close a disorderly meeting.  <br>
+(xiii)He/she shall be the spokesman of the Association and represents the good image of the Association.  <br>
+(xiv)He/she shall have the power to appoint aid.  <br>  
+SECTION 3: FUNCTION OF THE VICE PRESIDENT <br>
+The Vice President shall: <br>
+(i)Assist and advice the President in all his/her official duties and shall act in the absence or incapacitation of the President. <br>
+(ii)Carry out such other activities and functions that may be delegated to him/her from time to time by the President. <br>
+(iii)Automatically become the President if the post becomes vacant before the expiration of tenure of the President. <br>
+(iv)Be the Chairman/Chairperson of the Year One (1) Orientation Planning Committee. <br>
+(v)Be in charge of the academic welfare of the students. <br>
+(vi)He/she shall be in charge of organizing the Association's educational programs.  <br>
+SECTION 4: FUNCTIONS OF THE GENERAL SECRETARY <br>
+The General Secretary shall: <br>
+(i)Be the head of the Association's Secretariat <br>
+(ii)Convene, at the instance of the President, all Executive and Congress meetings of the Association. <br>
+(iii)Keep the records of the Association. <br>
+(iv)He/she shall prepare and make available to all members, the agenda of the meeting.  <br>
+(v)Compile and present report on the activities of the Association. This shall be in consultation with the President and Executive Council. <br>
+(vi)Carry out such duties as may be assigned to him/her from time to time by the President/Executive Council. <br>
+(vii)He/she shall inform the house through written, the decision taken in the Congress.  <br>
+(viii)He/she shall record the minute of the meetings and pasted on Association notice board and social media platform before 48hours. <br> 
+(xix) He/she shall dully inform, through written, all the people appointed as her moral and financial supporters immediately after the house approval. <br>
+ 
+SECTION 5: FUNCTIONS OF THE ASSISTANT GENERAL SECRETARY <br>
+The Assistant General Secretary shall: <br>
+(i)Assist the General Secretary in all his/her duties and shall act in his/her absence. <br>
+(ii)Carry out any other duties as may be assigned to him/her by the President/Executive Council (iii) Be the Secretary of the Year One (1) Orientation Planning Committee. <br>
+(iv)He/she shall ensure that no communication gap exist between the national body and its various branches and to her higher institutions.  <br>
+(v)He/she shall perform the function of the general secretary in his absence except that of signatory to the bank account.<br>  
+ 
+SECTION 5: FUNCTIONS OF THE TREASURER  <br>
+The Treasurer shall: <br>
+(i)Receive all Association monies collected by the financial secretary, Secretary or other sources. <br>
+(ii)Deposit all monies so received in the Association's account(s) within 48 hours after such receipt. <br>
+(iii)Be responsible for the disbursement of the approved expenditure of the Association. <br>
+(iv)Be a signatory to the Association’s account(s)  <br>
+(v)Be responsible for keeping an impress as may be approved by the Executive Council from time to time. <br>
+(vi)Submit all receipts, payment vouchers and the account balance of the Association to the Executive Council on monthly basis. <br>
+(vii)Hold the Association's cheque book and other bank documents, and handover same at the expiration of his/her tenure. <br>
+(viii)He shall be a member of financial committee.  <br>
+(xix) He shall retain the maximum of three thousand Naira (#5000) as cash at hand to run the Association.  <br>
+ 
+SECTION 6: FUNCTIONS OF THE FINANCIAL SECRETARY  <br>
+Financial secretary shall: <br>
+(i)Keep record/account of all the income and expenditure of the Association. <br>
+(ii)Collect all monies due to the Association and issue receipts for such monies. <br>
+(iii)Be a signatory to the Associations Account.  <br>
+(iv)He/she shall initiate and execute means of raising fund in consultation with other executive members.  <br>
+(v)He/she shall collect all funds, dues and ensure their payments are remitted to the treasurer within a week of receipt.  <br>
+(vi)He/she shall compile the budget of the Association.  <br>
+(vii)He/she shall give clear and comprehensive financial account of the Association during the handling over ceremony.  <br>
+ <br>
+SECTION 7: FUNCTIONS OF THE DIRECTOR OF SOCIALS <br>
+The Director of Socials shall: <br>
+(i)Co-ordinate all social activities of the Association such as Students’ Association Week. <br>
+(ii)Be in charge of the various musical and other entertainment instruments such as public address systems and see to their proper handling. <br>
+(iii)Be the Chairman/chairperson of the Social organizing committee of the Association. <br>
+(iv)He/she shall present the report of social activities, to the executive, and then to the Congress.  <br>
+(v)He/she shall be responsible for proper cleaning and tidiness of Associations secretarial and its surrounding.  <br>
+(vi)He/she shall be chairman of annual week committee.  <br>
+ 
+SECTION 8: FUNCTIONS OF THE DIRECTOR OF WELFARE <br>
+The Director of Welfare shall be female and shall: <br>
+(i)See to the proper welfare of all members in the Association. <br>
+(ii)She shall receive the guest of the Association and look after their welfare.  <br>
+(iii)She Shall perform any other function as may be directed by the president or provision of this constitution.  <br>
+(iv)She shall be responsible for the provision of recreational facilities for the use of uion members.  <br>
+(v)Maintain a proper inventory of all Association properties and hand over same at the expiration of his/her tenure. <br>
+(vi)Be the Chairman of the Welfare Committee of the Association. 
+ <br>
+  
+SECTION 9: FUNCTIONS OF THE DIRECTOR OF SPORTS <br>
+The Director of Sports shall: <br>
+(i)Co-ordinate all games and sporting activities of the Association. <br>
+(ii)Be the Chairman/Chairperson of the Sports Committee of the Association. <br>
+(iii)Sport activities for which Association bear any financial responsibilities shall be subjected to the ratification of the executive council.  <br>
+(iv)He shall have the access to all sporting facilities as may be provided to Association and he shall make it available when need arise.  <br>
+ 
+SECTION 10: FUNCTION OF THE PUBLIC RELATIONS OFFER (P. R. O)  <br>
+The Director of Information shall: <br>
+(i)Be the Chairman/Chairperson of the Publicity Committee and a member of the Association's Editorial Board. <br>
+(ii)Make press releases on behalf of the Association as approved by the Executive Council/President; and shall make copies of such release available to the secretary.  <br>
+(iii)He shall publicize the Association's activities through available means as may be directed by the executive council <br>
+(iv)He shall be the link between the board and the legislature. <br>
+ 
+SECTION 10: FUNCTIONS OF THE ASSISTANCE PUBLIC RELATIONS OFFICER <br>
+(P.R.O II) 
+Shall; <br>
+(i)He shall be a member of publicity committee <br>
+(ii)He shall assist the P.R.O in discharging his duties. <br>
+(iii)He shall deputize the P.R.O <br>
+ 
+SECTION 11: FUNCTIONS OF THE EX- OFFICIO WHIP 
+Shall; <br>
+(i)They shall be two (2) in number <br> 
+(ii)They shall be nominated by the new executive council subject to approval of the legislature.  <br>
+(iii)There shall be an election by open balloting if more than two (2) nominees emerged.  <br>
+(iv)They shall be members of the immediate-past executive council at the general meeting that heralded in the new executive council. <br>
+(v)They shall act in the advisory capacity to the incumbent executive council.  <br>
+(vi)They shall end their tenure of office together with the incumbent executive council.  <br>
+(vii)They shall have no voting right. <br>
+ 
+ 
+SECTION 12: FUNCTIONS OF THE AUDITOR  <br>
+(i)He/she shall ensure strict implementation of any Association project(s) or activities being approved money for its execution <br>
+(ii)He/she shall be ready to audit the Association accounting and financial reports for their accuracy and adequacy and issue report to the Executive, Legislative and Congress <br>
+(iii)He/she shall issue audit queries where necessary <br>
+(iv)He/she shall assist in providing information for the proposed budget <br>
+(v)He/she shall perform any other duties as may be assigned to him/her by the President or the Congress  <br>
+SECTION 13: QUORUM <br>
+(i)For any meeting of the Executive Council a quorum shall be formed when there are two third members of the Council present at the meeting. <br>
+(ii)No motion shall be passed unless by a two third majority of members present.<br> 
+SECTION 14: SHARING FORMULAR BETWEEN LEVELS<br> 
+400L 	300L 	200L <br>
+President  	General Secretary 	Pro II <br>
+Financial Secretary 	Vice President 	Assistance General Secretary <br>
+Welfare Director 	Sport Director 	Auditor  <br>
+Treasurer 	Deputy Speaker  	Clerk <br>
+Social Director  	Chief Whip 	 <br>
+Speaker  	 	 <br>
+PRO I 	 	 <br>
+NOTE: For Students in Science Laboratory Technology in 400L Can Contest For any other post in 400L except for the post of PRESIDENT but can contest while in 500L <br>
+ARTICLE 5 <br>
+COMMITTEE 	OF 	ASSOCIATION 	APPOINTED 	/ELECTED 	SUBSTANTIAL 
+COMMITTEE <br>
+The EXCO shall send the names of the standing committee members to the SRC <br>
+SECTION 1: STANDING COMMITTEE <br>
+(i)The standing committee shall be constituted after the election of the executive council members. <br>
+(ii)Each committee members shall have the maximum of five members <br>
+(iii)Their tenure end with that of executive council <br>
+(iv)All committee shall work in conjunction with one another if necessary. <br>
+ 
+VARIOUS STANDING COMMITTEES <br>
+(i)Education committee <br>
+(ii)Sport committee <br>
+(iii)Financial committee <br>
+(iv)Publicity committee <br>
+(v)Social committee <br>
+(vi)Venture committee <br>
+(vii)Ad-hoc committee  <br>
+ 
+ 
+ 
+SUBSECTION 1: EDUCATION COMMITTEE  <br>
+(i)The committee shall have vice president as the chairman and other three members. <br>
+(ii)It shall organize and implement educational programs like symposium, excursion, public lectures, award of prizes to the brilliant students and other related programs periodically. <br>
+(iii)It's report(s) shall be presented to the executive council, then to the Congress by its chairperson. <br>
+ 
+SUBSECTION 2: SPORT COMMITTEE <br>
+(i)It shall comprise of the sports director as the chairman, and four other member. <br>
+(ii)It shall encourage and mobilize students mass sports. <br>
+(iii)It shall plan and carry out the sport's activities of the Association among Programmes, Departments, and the Faculty. <br>
+ 
+ 
+SUBSECTION 3: FINANCIAL COMMITTEE<br>
+(i)It shall comprise of the financial secretary as the chairman, treasurer and other three members. <br>
+(ii)It shall initiate and implement ways of generating funds for the Association in line with the provisions of this constitution. <br>
+(iii)It shall print and monitor the receipt of payment of the Association. <br>
+(iv)It's chairperson shall make the report (s) of the committee's activities known to the Congress. <br>
+SUBSECTION 4: PUBLICITY COMMITTEE <br>
+(i)It shall comprise of the PRO (The chairperson), APRO and three other members <br>
+(ii)It shall be in charge of production of almanacs, banners, files, and stickers, written pads, postal and writing of placards. <br>
+(iii)It shall collect and keep members contact details and residential address.  <br>
+(iv)Its chairperson shall make the report (s) of the committee's activities known to the Congress SUBSECTION 5: SOCIAL COMMITTEE <br>
+(i)It shall comprise of the social director as the chairperson and other four members <br>
+(ii)It shall organized social programs for the Association <br>
+(iii)It shall organize excursion for the member. <br>
+(iiv) Its shall make available certificates of merits to be awarded to the immediate past officers 
+(EXCO & SRC) <br>
+(v) Its report shall be made known to the Congress at the Congress by its chairperson. (vi) It shall carry out monthly programs <br>
+ 
+SUBSECTION 6: VENTURE COMMITTEE <br>
+(i)It shall be five (5) members committee in which welfare director shall be the chairman.  <br>
+(ii)It shall liaise with the finance committee for proper fund generation for the Association. <br>
+(iii)It shall take charge and maintain the Association's venture properly. <br>
+(iv)It shall report its activities to the Congress. <br>
+(v)It shall advise the Association on the liability of any transaction being undertaken by the Association <br>
+(vi)It shall be responsible for issuance of receipts, keeping of financial transactions of the ventures and remit the cash that accrued from the venture to the financial secretary on or before 25th of every month. <br>
+ 
+SECTION 7: AD-HOC COMMITTEES <br>
+These committees shall be constituted by the House whenever their service are needed and dissolve whenever their assignment are completed, except the electoral committee which shall be constituted by the Congress. <br>
+VARIOUS AD-HOC COMMITTEES <br>
+(i)Electoral committee  <br>
+(ii)Auditing committee <br>
+(iii)Disciplinary committee <br>
+(iv)Special duties committee <br>
+(v)Constitutional committee  <br>
+ 
+SUBSECTION 1: ELECTORAL COMMITTEE <br>
+(i)This committee shall comprise  of a representative from each of the departments in the faculty among whom a chairperson, PRO and Secretary shall be appointed as seen fit by the members of the committee <br>
+(ii)The committee shall be constituted at the last congress held  before the dissolution of the executive and shall begin work immediately after the executives have been dissolved<br>
+(iii)The committee will consist of non-aspirants only (Exco or SRC)<br>
+(iv) It shall hold every aspirant accountable to all the criteria and conditions as provided in the code of conduct of the Faculty<br>
+(v)The committee shall report adequately, clearly and consistently to the congress about the election and its processes<br>
+(vi)It shall supervise and coordinate the election of SRC and executive<br>
+(vii)It shall provide election materials to the electorates. <br>
+(viii)It shall have power to close down the election when there is disorderliness <br>
+(ix)It shall declare the result of the elections immediately after counting. <br>
+(x) It’s secretary would compile a detailed and concise report on the entire proceedings, from the dissolution of the old executives to the swearing in of the new ones <br>
+(xi) It chairperson shall give electoral reports, to the Congress before its dissolution. <br>
+(xii) It shall be dissolved by the newly elected officers at the inaugural meeting after the electoral 
+report has been adopted. <br>
+ 
+SUBSECTION 2: AUDITING COMMITTEE <br>
+(i)It shall comprise three (3) members from the house among whom a chairperson and a secretary shall be elected, and other two (2) members nominated at the Congress. <br>
+(ii)It shall be constituted to audit Associations account(s) within a calendar year.  <br>
+(iii)It shall begin its assignment immediately after constituted. <br>
+(iv)It shall critically and professionally look into the account of the Association presented to it by the financial secretary and treasurer. <br>
+(v)It shall give clear and details of it findings to the SRC for clear deliberation. <br>
+(vi)It report shall be subject to the questioning by the Honourable. <br>
+ 
+ 
+SUBSECTION 3: DISCIPLINARY COMMITTEE <br>
+(i)It shall be constituted and comprise of six(6) numbers of high integrity, tested and proven sure, from the members among whom a chairperson and a secretary shall be elected<br>
+(ii)It shall investigate thoroughly without fear or favor the office of any erring member.<br> 
+(iii)It shall have power to summon any member of the Association during investigation and trial. <br>
+(iv)Any members of the committee who commit any forms of offense in the course of discharging his duty shall be dropped and replaced by appointing through the house. <br>
+(v)It shall make disinterested report(s) of its findings and recommend disciplinary measures (any) to the House.<br> 
+SUBSECTION 4: SPECIAL DUTIES COMMITTEE  <br>
+(i)It shall be constituted after the inauguration ceremony of the SRC <br>
+(ii)The committee Shall see into the screening of newly presented member(s) to be the member(s) of the council. <br>
+(iii)It shall act only within the council(s) <br>
+(iv)It shall be responsible for carryout any assignment been given to them by the council. <br>
+
+ 
+ 
+ 
+SUBSECTION 5: CONSTITUTIONAL COMMITTEE <br>
+(i)It shall be six man committee members and shall elect/select chairman within the committee members. <br>
+(ii)It shall responsible for the periodic amendment of this constitution. <br>
+(iii)Its’ report(s) shall be made known to the executive council and then to the congress through the chairman or any other member of the committee dedicated for such report presentation.<br>
+ 
+ARTICLE 6 <br>
+SECTION 1: THE REMOVAL OF THE HOUSE PRINCIPAL OFFICER(S) <br>
+(i)The proposal for the removal of ANY PRINCIPAL OFFICER shall be a written request signed by 2/3 members of the house or 2/3 of the congress and presented to the clerk of the house. Such a request shall contain the details of the offence(s) of the said principal officer.  <br>
+(ii)The house upon receiving such petition shall constitute the House Disciplinary Committee to investigate the said offence(s) <br>
+(iii)The verdict of this committee will thereafter be communicated to the president/speaker of the Association who will in turn called the congress for ratification of such verdict within three (3) weeks.  <br>
+(iv)In case of the Speaker removal, the Deputy speaker shall take over his/her function as provided in this constitution. <br>
+(v)In case the Speaker and Deputy Speaker to be removed simultaneously, the congress shall mandate the clerk of the house to be acting in the capacity of the speaker until a fresh election to the office of the Speaker and his/her deputy is conducted.<br> 
+(vi)In case, all the aforementioned fails, the congress shall mandate the house to elect all the functionaries affected among them present in the house sitting and voting, guiding and monitoring by electoral committee.    <br>
+ 
+SECTION 2: DISSOLUTION OF THE ASSOCIATION OFFICERS <br>
+(i)The dissolution of executives council power shall be vested on outgoing speaker at the end of his tenure of office and standing committee member. <br>
+(ii)The discussion of legislative council power shall be vested on outgoing speaker at the end of his tenure of office including Ad-hoc committee member (SRC). <br>
+(iii)The congress shall be empowered to dissolve an executive council before the expiration of his tenure on these ground. <br>
+1.Whenever found wanting and Two Third (2/3) majority approval <br>
+2.After two third (2/3) approval has been secured from present members. <br>
+SECTION 3: SETTING UP OF INTERIM EXECUTIVE COUNCIL <br><br>
+(i)The speaker shall preside over the congress that will see to the nomination of the interim executive council. <br>
+(ii)Interim executive shall be set up immediately after the dissolution of erring executive council. <br>
+(iii)The council shall comprise five (5) members from the congress among whom a chairperson a secretary and key officers shall be elected /appointed by the Congress. <br>
+(iv)It function are all those performed by the executive council unless otherwise decided by the congress. <br>
+(v)The congress shall ask member of the council to complete the tenure of the sacked executive council or conduct another election to usher in new executive council. <br>
+(vi)It tenure terminated shortly after the commencement of the election of new executives council member. <br>
+(vii)Members of the SRC shall not become the council member. <br>
+SECTION 4: TENURE OF OFFICE <br>
+The dissolution of the Executives shall be done during the last congress, and any office of the Association shall perform his functions subjected to the provisions of the constitution until. <br>
+i. When his/her successor take the oath of office. ii. When he/she die while holding such office. <br>
+iii. When the date of his resignation from office take place. iv. He/she ceases to hold office in accordance with provisions of the constitution. V. He/she shall vacate his office at expiration of his one year in office. <br>
+ 
+ 
+ 
+SECTION 5: RESIGNATION OF THE ASSOCIATION'S OFFICER(S) <br>
+(i)A member of executive council or of a committee may relinquish his office and his seat by writing the congress through the general secretary one week before the congress meeting. <br>
+(ii)Congress may reject a resignation consider not made in good faith or persuade. The resignation officer to consider his stand if need be.  <br>
+(iii)Every resignation of the executive shall be ratified by 2/3 majority of the congress. <br>
+(iv)The vacancy in executive council so created shall be filled during the next congress. <br>
+(v)The resigning /impeached officer shall be made to submit a comprehensive report (s) of stewardship to the general secretary a week after, and shall be made known to the congress during the next general meeting. <br>
+(vi)He/she shall be made to submit at the Association's properties with him while in office not later than forty eight hours after. <br>
+(vii)The officer's impeachment or suspension shall not absorb him from being punished. <br>
+ 
+ARTICLE 7 <br>
+SECTION 1: ELECTION  <br>
+(i) Election into the Executive Council shall be held every year.<br>
+(ii) Elections may be held earlier due to dissolution or impeachment.<br>
+(iii) Every contestant shall be required to obtain a decided amount as determined by the Electoral Committee for a non-refundable nomination form. Each contestant shall be sponsored by an Association's financial member, and his or her form shall be signed by two financial members.<br>
+(iv) There shall be no election by proxy into the Executive Council.<br>
+(v) Every contestant shall be made to address the Congress, after which he or she shall be called upon to answer questions during the period allotted for questioning all contestants.<br>
+(vi) Questioning of the candidate shall be conducted in a reasonably argumentative manner.<br>
+(vii) Any member who has been convicted of any offence and has not been pardoned shall not be eligible to contest for any post.<br>
+(viii) Election shall be by one student, one vote.<br>
+(ix) Election of the Executive, and other elections as may be prescribed by the Congress, shall be conducted by secret ballot.<br>
+(x) Procedures for open balloting are as follows:<br>
+  1. Members who meet election requirements shall be accredited and form the electorate.<br>
+  2. Ballot papers containing all aspirants' names and the posts contested for shall be distributed to the electorate.<br>
+  3. The counting shall be done in the order in which the posts are listed on the ballot paper.<br>
+  4. The counting shall be carried out in the full presence of the aspirants’ agents.<br>
+  5. Only contestants who have paid their annual dues and possess an Association ID card shall have the right to vote and be voted for.<br>
+(xii) The Chairperson of the Electoral Committee shall proclaim the result of the election immediately after the counting of votes.<br>
+(xiii) A candidate with the highest number of votes shall be deemed to have been elected.<br>
+(xiv) An unopposed candidate shall be deemed to have been elected after being returned by two-thirds (2/3) of the total votes cast.<br>
+(xv) Where the unopposed candidate fails to be elected in accordance with (xiv) above, any other eligible member(s) can apply for the post in addition to the original candidate, who shall have the right to review his or her nomination.<br>
+(xvi) In case there are two or more candidates having equal numbers of votes, there shall be no ground for re-election; instead, the contestants may re-campaign, subject to requisitioning by the Congress.<br>
+(xvii) The APRO and Deputy Chief Whip shall be contestable within their respective categories of membership.<br>
+(xviii) Members shall attend two national congress meetings, including the annual general meeting, before they can vote or be voted for.<br>
+(xix) Any member of the SRC who wishes to contest for the Executive Council shall tender his or her resignation letter two weeks before the election.<br>
+(xx) Any member of the Executive Council who wishes to re-contest shall tender his or her resignation letter two weeks before the election. Failure to do this will lead to the automatic disqualification of the candidate, and there will be no form of reconsideration.<br>
+xiv) The positions of President and Speaker shall be open only to members in their 400 level.<br>
+(xv) The conduct of the general elections and bye-elections shall be vested in the Electoral Committee.<br>
+(xvi) Election petitions must be submitted to the Electoral Committee no later than seven (7) days after the elections.<br>
+(xvii) The Electoral Committee shall have the authority to make rules and regulations to ensure orderliness and proper conduct during elections and campaigns.<br>
+(xviii) Any candidate who violates any rule in this constitution shall have their candidacy nullified.<br>
+
+SECTION 2: TIME AND VENUE OF ELECTION <br>
+(i) Elections of the Association shall be held within the Faculty premises as decided by the Association.<br>
+(ii) The elections shall be supervised by the Electoral Committee, the agents of the contestants, the Association Advisers, and invited security officers.<br>
+(iii) The date of the election shall be decided by either the Congress or the Electoral Committee.<br>
+ 
+ 
+ 
+ARTICLE 8: SOCIAL NETWORKING<br>
+SECTION 1: SOCIAL NETWORKING <br>
+The use of Internet communities to network and communicate with other people via social media such as WhatsApp, Facebook, Twitter, Instagram, etc.<br>
+GROUP ADMIN<br>
+(i) The Group Admin shall comprise the President, Secretary, Director of Information (PRO), and one Ex-officio Whip.<br>
+(ii) They shall have the authority to maintain peace and orderliness in the group chat.<br>
+(iii) They shall keep the group open for online meetings and other related activities.<br>
+(iv) They shall have the power to lock the group chat when necessary.<br>
+(v) They shall have the power to remove offenders from the group.<br>
+ 
+ARTICLE 9: MODE OF ADDRESSING IN THE CONGRESS<br>
+SECTION 1: MODE OF ADDRESSING IN THE CONGRESS<br>
+The President,<br>
+The Speaker,<br>
+Members of the Central Executive Council,<br>
+The Honourables, and<br>
+Members of Congress.<br>
+ 
+SECTION 2: POINT OF ORDER<br>
+(i) A point of order, when raised, must be observed at all times except during the act of voting and shall deal with the conduct of the meeting.<br>
+(ii) When there is a need to refer to standing orders of the constitution.<br>
+(iii) When a member is violating the standing orders.<br>
+(iv) When introducing matters relevant to the question under consideration.<br>
+
+SECTION 3: OFFICIAL LANGUAGE<br>
+The approved language in any gathering of the Association shall be English, and other languages may be welcomed by the majority at all times.<br>
+
+SECTION 4: STANDING ORDER FOR HONOURABLES AND CONGRESS<br>
+Unless the meeting decides otherwise, business at every meeting shall be conducted as follows:<br>
+(i) Choosing a person to preside if the President, Speaker, Vice-President, Deputy Speaker, or their deputies are absent.<br>
+(ii) Hearing of the last meeting’s minutes.<br>
+(iii) Amendment (if any) and adoption of the minutes of the last meeting.<br>
+(iv) Signature by the Speaker/President or person presiding over the minutes of the last meeting.<br>
+(v) Items of business arising from the minutes of the last meeting unless such items are separately scheduled.<br>
+vi) Business announced with the notice of the meeting in order of priority, unless the order is changed with the approval of the President/Speaker.<br>
+
+SECTION 5: INAUGURAL MEETING<br>
+(i) Swearing-in of the President by the Chairman of the Electoral Committee or his/her representative.<br>
+(ii) Swearing-in of the members of the parliament by the President.<br>
+(iii) Presidential address.<br>
+(iv) Address by the Electoral Chairman or his/her representative.<br>
+(v) Award of certificate by the Electoral Chairman or his/her representative to the outgoing Honourables and other Association Executives.<br>
+(vi) Address by the Speaker.<br>
+(vii) Matters arising from the previous parliamentary year.<br>
+(viii) Debate on the presidential address.<br>
+(ix) Motion and resolution.<br>
+(x) Adjournment.<br>
+SECTION 6: BUSINESS MEETING<br>
+(i) Matters arising from the previous meeting.<br>
+(ii) Seasonal reports of all bodies of the Association.<br>
+(iii) Debate and approval of the statement of account.<br>
+(iv) Election of the Electoral Committee in line with the provisions of this constitution.<br>
+(v) Motions and Petitions<br>
+(vi) Adjourment
+<br>
+SECTION 7: QUORUM FOR LEGISLATIVE<br>
+At least two-thirds of the Honourable members must be present before a quorum can be formed.<br>
+ARTICLE 10: AMENDMENT<br>
+The constitution shall, after adoption by the Congress, be supreme in the conduct of the business of the Association.
+Despite its supremacy, any of its provisions may be amended or repealed, or new provisions may be added through the following procedures:<br>
+(i) The Constitution shall be subjected to review or amendment upon a resolution signed and addressed to the Speaker by not less than two-thirds (2/3) of all Congress members.<br>
+(ii) Any amendment of this constitution must be sent in writing to the Clerk of the House at least one week before sitting, and the Clerk shall give every Honourable member a statement of the amendment at least 14 days before the sitting.<br>
+(iii) The Committee shall be set up by the Speaker of the Honourable House not later than two weeks after receiving such bill or resolution; otherwise, a call shall be made for the service of the Constitutional Committee if they have already been set up.<br>
+(iv) They shall, at the end of their work, present the amended and reviewed version of the constitution to the Congress for ratification, and this shall be called a constitutional proposal until it is approved by the Congress.<br>
+
+COMMENCEMENT<br>
+The provisions of this constitution and everything therein shall come into force as soon as it is approved by the Congress.<br>
+
+Approved Date: . . . . . . . . . .<br>
+ 
+CITATION <br>
+ This Constitution shall be cited as the Constitution of the Natural and Applied Sciences Students’ Association, and expressly repeals the former Constitution of the Natural and Applied Sciences Students’ Association (NASSA). <br>
+ 
+OATH OF OFFICE  <br>
+ 
+(i)I …………………….. Do solemnly swear affirm that I will be faithful and bear true allegiance to NASSA  <br>
+(ii)That as ……………………….. of NASSA, I will discharge my duties to the best of my ability faithfully in accordance with the constitution of the NASSA.  <br>
+(iii)That I will uphold the morality and interest of sovereignty integrity of the NASSA at all levels. <br> 
+(iv)That I will strive, preserve the fundamental aim, objectives, aspirations and policies contained in the constitution of the NASSA. <br> 
+(v)That I will not allow my personal interest to influence my official conduct or my official decisions. <br>
+(vi)That I will do the best of my ability to preserve, protect and defend the constitution of NASSA.  <br>
+(vii)That in all circumstances, I will do right to all manner of people morality without fear or favour, affection or ill-will <br>
+(viii)That I will devote myself to the service and well being of all members of NASSA SO HELP ME GOD.<br>
+ 
+ 
+CONSTITUTION REVIEW COMMITTEE<br>
+This Constitution was proposed and reviewed by the Steering committee, Natural and Applied science students’ Association, (NASSA) First Technical University Ibadan, Led/Chaired by  AKINOLA MORAKINYO of Department of Microbiology and Biotechnology and ISIAKA HALIYAH of Department of Computer Science faculty of Natural and Applied sciences. On 12th of August, 2025.<br>
+    </div>
+     <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h3>NASSA</h3>
+          <p>Building the leaders of tomorrow, today.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="./constitution.html">Constitution</a>
+          <a href="./dues.html">Pay Dues</a>
+          <!-- <a href="#">Gallery</a> -->
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>IG @ nassatechu</p>
+          <p>X @ nassaaatu</p>
+        </div>
+      </div>
+      <div class="copyright">&copy; 2025 NASSA. All Rights Reserved.</div>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
